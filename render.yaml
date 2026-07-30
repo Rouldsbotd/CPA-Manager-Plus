@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cpa-manager-plus
+    runtime: docker
+    repo: https://github.com/Rouldsbotd/CPA-Manager-Plus
+    plan: free
+    dockerfilePath: ./Dockerfile.manager-server
+    healthCheckPath: /health
+    envVars:
+      - key: USAGE_DATA_DIR
+        value: /data
+      - key: USAGE_DB_PATH
+        value: /data/usage.sqlite
+      - key: CPA_MANAGER_DATA_KEY_PATH
+        value: /data/data.key
